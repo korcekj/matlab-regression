@@ -9,10 +9,11 @@ function[Fit]=fitness(Pop, x, y)
         alphas=Pop(i,:);
         Fx(i,:)=polyval(alphas, x); % Vypocet funkcnych hodnot pre kazde x
         diff=abs(Fx(i,:)-y); % Vypocet rozdielu funkcnych hodnot 
-        Fit(i)=0; % Inicializacia premennej k potrebnym vypoctom
-        for j = 1:lstring-1
-            Fit(i)=Fit(i)+diff(j); % spocitanie hodnot rozdielu -> vyhodnotenie fitness pre aktualny retazec
-        end
+        Fit(i)=sum(diff(:));
+%         Fit(i)=0; % Inicializacia premennej k potrebnym vypoctom
+%         for j = 1:lstring-1
+%             Fit(i)=Fit(i)+diff(j); % spocitanie hodnot rozdielu -> vyhodnotenie fitness pre aktualny retazec
+%         end
     end
     
 end

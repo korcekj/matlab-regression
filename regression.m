@@ -1,4 +1,3 @@
-% points=[1 1; 2 4; 4 2; 6 5];
 xS=[1 2 4 6];
 yS=[1 4 2 5];
 
@@ -13,7 +12,7 @@ minRet=Pop(indx,:); % ulozenie najlepsieho retazca do pomocnej premennej
 grafFit=zeros(1,numcykle);
 
 for i=1:numcykle
-    NewPop1=selbest(Pop, Fit, [3 1]); % 6 najlepsich a 1 nahodny vyber prvkov
+    NewPop1=selbest(Pop, Fit, [3 1]); % 3 najlepsich a 1 nahodny vyber prvkov
     NewPop2=selrand(Pop, Fit, 26); % nahodne vybrane ostatne chybajuce prvky do poppulacie
     CrossedPop=crossov(NewPop2, 2, 0); % krizenie
     MutedPopX=mutx(CrossedPop, 0.05, Space); % mutacia
@@ -30,7 +29,7 @@ for i=1:numcykle
 end
     
 minFit
-minRet
+% minRet
     
 plot(xS, yS, ':s', 'MarkerSize', 6, 'MarkerFaceColor', 'b');
 axis([0 8 0 8]);
